@@ -88,7 +88,7 @@ public class FriendsAppController implements Initializable {
         }
 
         List<Friend> friendsStream = friendsList.stream()
-                .filter(Friend -> Friend.getName().equals(searchText) || Friend.getEmail().equals(searchText) || Friend.getAddress().equals(searchText))
+                .filter(Friend -> Friend.getName().contains(searchText) || Friend.getEmail().contains(searchText) || Friend.getAddress().contains(searchText))
                 .collect(Collectors.toList());
 
         if (searchText.equals("") && friendsList.size() != 0) {
