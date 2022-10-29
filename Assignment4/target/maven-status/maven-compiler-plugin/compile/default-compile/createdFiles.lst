@@ -1,0 +1,7 @@
+space/harbour/tictactoe/domain/Move.class
+space/harbour/tictactoe/domain/Board.class
+space/harbour/tictactoe/TicTacToeApp.class
+space/harbour/tictactoe/Main.class
+space/harbour/tictactoe/controller/TicTacToeController.class
+space/harbour/tictactoe/util/Resources.class
+space/harbour/tictactoe/domain/Tile.class
