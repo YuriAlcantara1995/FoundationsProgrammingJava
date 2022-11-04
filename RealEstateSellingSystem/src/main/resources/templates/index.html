@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Real Estate Selling System</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+</head>
+
+<body class="bg-gray-400 font-sans leading-normal tracking-normal">
+<!--Nav-->
+<nav class="bg-gray-800 p-2 mt-0 w-full"> <!-- Add this to make the nav fixed: "fixed z-10 top-0" -->
+  <div class="container mx-auto flex flex-wrap items-center">
+    <div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
+      <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
+        <span class="text-2xl pl-2"> Real Estate Selling System</span>
+      </a>
+    </div>
+    <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
+      <span sec:authorize="isAuthenticated()" sec:authentication="principal.username" class="inline-block text-gray-400 no-underline hover:text-gray-100 hover:text-underline py-2 px-4"></span>
+      <a sec:authorize="isAnonymous()" th:href="@{/register}" class="inline-block text-gray-400 no-underline hover:text-gray-100 hover:text-underline py-2 px-4">Register</a>
+      <a sec:authorize="isAnonymous()" th:href="@{/login}" class="inline-block text-gray-400 no-underline hover:text-gray-100 hover:text-underline py-2 px-4">Log in</a>
+      <a sec:authorize="isAuthenticated()" th:href="@{/logout}" class="inline-block text-gray-400 no-underline hover:text-gray-100 hover:text-underline py-2 px-4">Log out</a>
+    </div>
+  </div>
+</nav>
+
+<!--Hero-->
+<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+  <div class="flex flex-col w-full lg:w-1/2 justify-center items-start pt-12 pb-24 px-6">
+    <p class="uppercase tracking-loose">Welcome</p>
+    <h1 class="font-bold text-3xl my-4">Find your home</h1>
+    <p class="leading-normal mb-4">Here realtors can publish their real estate listing and visitors can easily contact them to buy or sell properties. This is mainly a listing website to build connection between buyers and sellers.</p>
+    <div>
+      <div style="float:left">
+        <form th:action="@{/properties}">
+          <input class="bg-gray-800 text-gray-400 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-gray-900 hover:border-transparent" type="submit" value="Properties" />
+        </form>
+      </div>
+      <div style="float:left; margin-left:10px">
+        <form th:action="@{/realtors}">
+          <input class="bg-gray-800 text-gray-400 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-gray-900 hover:border-transparent" type="submit" value="Realtors" />
+        </form>
+      </div>
+      <div style="float:left; margin-left:10px" sec:authorize="isAuthenticated()" th:if="${#authentication.principal.isRealtor() == false}">
+        <form th:action="@{/realtor/add}">
+          <input class="bg-gray-800 text-gray-400 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-gray-900 hover:border-transparent" type="submit" value="Create Realtor Profile" />
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--Right Col-->
+  <div class="w-full lg:w-1/2 lg:py-6 text-center">
+    <!--Add your product image here-->
+    <img th:src="@{../../images/logo.jpeg}" width="500"/>
+  </div>
+</div>
+</body>
+</html>

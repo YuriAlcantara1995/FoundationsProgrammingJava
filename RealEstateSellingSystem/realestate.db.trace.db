@@ -1,0 +1,18 @@
+2022-11-04 12:38:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "description CHARACTER VARYING(255)": "'A farm is an area of land where livestock (animals) are raised and crops (plant... (272)"; SQL statement:
+insert into "properties" ("id", "category_id", "creation_date", "description", "name", "picture", "price", "realtor_id") values (default, ?, ?, ?, ?, ?, ?, ?) [22001-214]
+2022-11-04 12:43:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "description CHARACTER VARYING(255)": "'University Tower is a 17-story Durham landmark building, offering unique Class ... (477)"; SQL statement:
+insert into "properties" ("id", "category_id", "creation_date", "description", "name", "picture", "price", "realtor_id") values (default, ?, ?, ?, ?, ?, ?, ?) [22001-214]
+2022-11-04 12:44:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "description CHARACTER VARYING(255)": "'University Tower is a 17story Durham landmark building, offering unique Class A... (474)"; SQL statement:
+insert into "properties" ("id", "category_id", "creation_date", "description", "name", "picture", "price", "realtor_id") values (default, ?, ?, ?, ?, ?, ?, ?) [22001-214]
+2022-11-04 12:45:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "description CHARACTER VARYING(255)": "'Amenities include the exclusive penthouse floor University Club Restaurant, bar... (296)"; SQL statement:
+insert into "properties" ("id", "category_id", "creation_date", "description", "name", "picture", "price", "realtor_id") values (default, ?, ?, ?, ?, ?, ?, ?) [22001-214]
+2022-11-04 12:45:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "description CHARACTER VARYING(255)": "'Amenities include the exclusive penthouse floor University Club Restaurant, bar... (296)"; SQL statement:
+insert into "properties" ("id", "category_id", "creation_date", "description", "name", "picture", "price", "realtor_id") values (default, ?, ?, ?, ?, ?, ?, ?) [22001-214]
+2022-11-04 12:48:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "description CHARACTER VARYING(255)": "'Amenities include the exclusive penthouse floor University Club Restaurant, bar... (296)"; SQL statement:
+insert into "properties" ("id", "category_id", "creation_date", "description", "name", "picture", "price", "realtor_id") values (default, ?, ?, ?, ?, ?, ?, ?) [22001-214]

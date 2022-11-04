@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Real Estate Selling System</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="bg-gray-800 p-2 mt-0 w-full"> <!-- Add this to make the nav fixed: "fixed z-10 top-0" -->
+  <div class="container mx-auto flex flex-wrap items-center">
+    <div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
+      <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
+        <span class="text-2xl pl-2"> Real Estate Selling System</span>
+      </a>
+    </div>
+    <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
+      <span sec:authorize="isAuthenticated()" sec:authentication="principal.username" class="inline-block text-gray-400 no-underline hover:text-gray-100 hover:text-underline py-2 px-4"></span>
+      <a th:href="@{/}" class="inline-block text-gray-400 no-underline hover:text-gray-100 hover:text-underline py-2 px-4">Home</a>
+      <a sec:authorize="isAnonymous()" th:href="@{/register}" class="inline-block text-gray-400 no-underline hover:text-gray-100 hover:text-underline py-2 px-4">Register</a>
+      <a sec:authorize="isAnonymous()" th:href="@{/login}" class="inline-block text-gray-400 no-underline hover:text-gray-100 hover:text-underline py-2 px-4">Log in</a>
+      <a sec:authorize="isAuthenticated()" th:href="@{/logout}" class="inline-block text-gray-400 no-underline hover:text-gray-100 hover:text-underline py-2 px-4">Log out</a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <br>
+  <br>
+  <h2>Property</h2>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="form-group">
+        <strong>Name:</strong>
+        <span th:text="${property.name}"></span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="form-group">
+        <img th:src="@{/property-pictures/{path}(path=${#strings.toString(property.id) + property.picture})}" width="500"/>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="form-group">
+        <strong>Category:</strong>
+        <a class="" th:href="@{/category/show/{id}(id=${property.category.id})}" th:text="${property.category.name}"></a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="form-group">
+        <strong>Description:</strong>
+        <div th:text="${property.description}"></div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="form-group">
+        <strong>Price:</strong>
+        <span th:text="${property.price}"></span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="form-group">
+        <strong>Realtor:</strong>
+        <a class="" th:href="@{/realtor/show/{id}(id=${property.realtor.id})}" th:text="${property.realtor.user.name}"></a>
+      </div>
+    </div>
+  </div>
+ <hr>
+
+  <a th:href = "@{/properties}">Property List</a>
+</div>
+</body>
+</html>
